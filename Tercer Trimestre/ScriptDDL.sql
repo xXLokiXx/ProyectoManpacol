@@ -1,6 +1,6 @@
 -- Base de datos BodegaManpaCol
 create database BodegaManpaCol;
-
+use BodegaManpaCol;
 -- Tabla Tipo de documento
 create table TipoDocumento(
 Id int not null auto_increment,
@@ -51,15 +51,17 @@ primary key(Id)
  
  
  -- Tabla Tamaños
- create table tamaño(
+ create table Tamaño(
  Id int not null auto_increment,
- Descripcion varchar(60)
+ Descripcion varchar(60),
+ primary key(Id)
  );
  
  -- Tabla Texturas
  create table TexturaPapel(
  Id int not null auto_increment,
- Descripcion varchar(60)
+ Descripcion varchar(60),
+ primary key(Id)
  );
  
  -- Tabla Proveedores
@@ -98,7 +100,7 @@ primary key(Id)
  primary key(Id),
  foreign key(IdTipoMaterial) references TipoMaterial(Id),
  foreign key(IdTamaño) references Tamaño(Id),
- foreign key(IdTextura) references Textura(Id),
+ foreign key(IdTextura) references TexturaPapel(Id),
  foreign key(IdProveedor) references Proveedor(Id) 
  );
  
@@ -120,11 +122,11 @@ primary key(Id)
  idSalida int not null,
  idMaterial int not null,
  Cantidad int,
- primary key(idSalida),
- foreign key(idSalida) references Salida(Id),
- primary key(idMaterial),
- foreign key(idMaterial), references Material(Id)
+ 
+ foreign key(idSalida) references Salida(Id), 
+ foreign key(idMaterial) references Material(Id),
+ primary key(idMaterial,idSalida)
  );
  
  
- 
+
