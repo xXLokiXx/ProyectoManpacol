@@ -1,6 +1,6 @@
 -- Base de datos BodegaManpaCol
 create database BodegaManpaCol;
-
+use BodegaManpaCol;
 -- Tabla Tipo de documento
 create table TipoDocumento(
 Id int not null auto_increment,
@@ -20,7 +20,7 @@ primary key(Id)
  Id int not null auto_increment,
  Descripcion varchar(80),
  Cantidad int,
- UnidadMedida ENUM('Kg','m','cm'),
+ UnidadMedida ENUM('Kg','m','cm', 'Unidad'),
  primary key(ID)
  );
  
@@ -49,17 +49,11 @@ primary key(Id)
  foreign key(IdTipoDocumento) references TipoDocumento(Id)
  );
  
- 
- -- Tabla Tamaños
- create table tamaño(
- Id int not null auto_increment,
- Descripcion varchar(60)
- );
- 
  -- Tabla Texturas
  create table TexturaPapel(
  Id int not null auto_increment,
- Descripcion varchar(60)
+ Descripcion varchar(60),
+ primary key(Id)
  );
  
  -- Tabla Proveedores
@@ -91,14 +85,12 @@ primary key(Id)
  Id int not null auto_increment,
  IdTipoMaterial int not null,
  Existencias int,
- IdTamaño int not null,
- Color varchar(60),
+ Color SET('Verde','Azul','Blanco', 'Rojo'),
  IdTextura int null,
  IdProveedor int not null,
  primary key(Id),
  foreign key(IdTipoMaterial) references TipoMaterial(Id),
- foreign key(IdTamaño) references Tamaño(Id),
- foreign key(IdTextura) references Textura(Id),
+ foreign key(IdTextura) references TexturaPapel(Id),
  foreign key(IdProveedor) references Proveedor(Id) 
  );
  
@@ -120,11 +112,10 @@ primary key(Id)
  idSalida int not null,
  idMaterial int not null,
  Cantidad int,
- primary key(idSalida),
- foreign key(idSalida) references Salida(Id),
- primary key(idMaterial),
- foreign key(idMaterial), references Material(Id)
- );
  
+ foreign key(idSalida) references Salida(Id), 
+ foreign key(idMaterial) references Material(Id),
+ primary key(idMaterial,idSalida)
+ );
  
  
