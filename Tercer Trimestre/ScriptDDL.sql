@@ -49,6 +49,20 @@ primary key(Id)
  foreign key(IdTipoDocumento) references TipoDocumento(Id)
  );
  
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:Tercer Trimestre/ScriptDDL.sql
+ 
+ -- Tabla Tamaños
+ create table Tamaño(
+ Id int not null auto_increment,
+ Descripcion varchar(60),
+ primary key(Id)
+ );
+ 
+========
+>>>>>>>> 3ff05a011ebf79b833e7e6eddcb4d4907082bbd8:TercerTrimestre/ScriptDDL.sql
+>>>>>>> 3ff05a011ebf79b833e7e6eddcb4d4907082bbd8
  -- Tabla Texturas
  create table TexturaPapel(
  Id int not null auto_increment,
@@ -90,6 +104,13 @@ primary key(Id)
  IdProveedor int not null,
  primary key(Id),
  foreign key(IdTipoMaterial) references TipoMaterial(Id),
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:Tercer Trimestre/ScriptDDL.sql
+ foreign key(IdTamaño) references Tamaño(Id),
+========
+>>>>>>>> 3ff05a011ebf79b833e7e6eddcb4d4907082bbd8:TercerTrimestre/ScriptDDL.sql
+>>>>>>> 3ff05a011ebf79b833e7e6eddcb4d4907082bbd8
  foreign key(IdTextura) references TexturaPapel(Id),
  foreign key(IdProveedor) references Proveedor(Id) 
  );
@@ -112,10 +133,26 @@ primary key(Id)
  idSalida int not null,
  idMaterial int not null,
  Cantidad int,
+<<<<<<< HEAD
+=======
+<<<<<<<< HEAD:Tercer Trimestre/ScriptDDL.sql
+>>>>>>> 3ff05a011ebf79b833e7e6eddcb4d4907082bbd8
+ 
+ foreign key(idSalida) references Salida(Id), 
+ foreign key(idMaterial) references Material(Id),
+ primary key(idMaterial,idSalida)
+ );
+<<<<<<< HEAD
+ 
+ 
+=======
+========
+>>>>>>>> 3ff05a011ebf79b833e7e6eddcb4d4907082bbd8:TercerTrimestre/ScriptDDL.sql
  
  foreign key(idSalida) references Salida(Id), 
  foreign key(idMaterial) references Material(Id),
  primary key(idMaterial,idSalida)
  );
  
- 
+
+>>>>>>> 3ff05a011ebf79b833e7e6eddcb4d4907082bbd8
