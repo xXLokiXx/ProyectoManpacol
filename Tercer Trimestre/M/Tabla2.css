@@ -1,0 +1,89 @@
+*
+{
+margin:0%;
+padding:0%;
+box-sizing:border-box;
+
+}
+body{
+
+    font-family: 'Anton', sans-serif;
+    font-family: 'Amatic SC', cursive;
+   
+}
+nav{
+
+    position: fixed;
+    top: 40px;
+    left:40px;
+    
+
+
+}
+nav a{
+    font-size: 100px;
+    color:rgb(8, 8, 8);
+    text-decoration:none;
+    
+}
+
+header{
+
+
+    background: #2980B9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height:auto;
+    padding:48px;
+    width:100%;
+}
+
+.Container{
+
+width:98%;
+max-width:1200px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+margin: auto;
+font-size: 80px;
+
+}
+
+img{
+
+    display: block;
+    height:50px;
+    object-fit:cover;
+    width:50; 
+    margin-left:200px;
+
+
+}
+
+.textos{
+width: 50%;
+color: black;
+
+
+}
+
+.textos h1{
+font-size:80px;
+
+}
+.textos a{
+display: inline-block;
+color: black;
+font-weight:300;
+text-decoration: none;
+margin-top: 30px;
+border:1px solid ;
+width:150px;
+border-radius:4px ;
+text-align: center;
+
+}
+
+
+
